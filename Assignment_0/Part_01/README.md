@@ -1,3 +1,9 @@
+### Compilation
+
+Flag `-save-temps` instructing the compiler to not to delete intermediate files, generating `hello.i`, `hello.s`, `hello.o` and `hello`:<br>
+```gcc -save-temps hello.c -o hello```
+
+
 ### Resources
  - [CS-Fundamentals: Compile and Execute C Program](https://cs-fundamentals.com/c-programming/how-to-compile-c-program-using-gcc.php)
  - [Medium Blog: C Program Compilation Process](https://medium.com/@earthtojhuang/gcc-main-c-9f6ee2e6894b)
