@@ -1,10 +1,9 @@
-# 1 "hello.c"
+# 1 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 31 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
-# 32 "<command-line>" 2
-# 1 "hello.c"
+# 1 "<command-line>" 2
+# 1 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c"
 # 1 "/usr/include/stdio.h" 1 3 4
 # 27 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
@@ -789,10 +788,10 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 # 868 "/usr/include/stdio.h" 3 4
 
-# 2 "hello.c" 2
+# 2 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c" 2
 
 
-# 3 "hello.c"
+# 3 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c"
 int main()
 {
  int a = 10;

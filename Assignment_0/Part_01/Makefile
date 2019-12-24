@@ -1,14 +1,17 @@
+CC:=gcc
+LIB_PATH:=-pthread
+
 default:
 	make preprocess compile assemble link
 all:
-	gcc -Wall -save-temps hello.c -o hello
+	$(CC) -Wall -save-temps $(LIB_PATH) $(PWD)/hello.c -o $(PWD)/hello
 preprocess:
-	gcc -Wall -E hello.c -o hello.i
+	$(CC) -Wall -E $(LIB_PATH) $(PWD)/hello.c -o $(PWD)/hello.i
 compile:
-	gcc -S hello.i -o hello.s
+	$(CC) -S $(LIB_PATH) $(PWD)/hello.i -o $(PWD)/hello.s
 assemble:
-	gcc -m64 -masm=intel -c hello.s -o hello.o
+	$(CC) -m64 -masm=intel -c $(LIB_PATH) $(PWD)/hello.s -o $(PWD)/hello.o
 link:
-	gcc -o hello hello.o
+	$(CC) -o $(PWD)/hello $(PWD)/hello.o
 clean:
 	rm hello hello.i hello.s hello.o
