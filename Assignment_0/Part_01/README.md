@@ -103,6 +103,8 @@ main:
  - The `.size` instruction stored the size of the main function in `.-main`. The `.ident` instruction shall save information about the compiler used to generate the assembly code. These shell be written to the object file.
  
 #### Assembly
+The assembly code `hello.s` is then converted to an object file `hello.o` in Executable and Linkable Format (ELF). Following is the object code, obtained using the command ```readerelf hello.o```:
+
  ```elf
  ELF Header:
   Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
@@ -193,6 +195,9 @@ Symbol table '.symtab' contains 12 entries:
     11: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND printf
 
  ```
+- The ELF Header contains information about the binary code present in the object file. `ELF64` tells that it is a 64-bit binary code, which is in 2's complement representation and little endian format.
+- The object file has 13 section headers: `NULL`, `.text`, `.rela.text`, `.data`, `.bss`, `.rodata`, `.symtab`, etc.
+ 
 #### Linking
 
 ```elf
