@@ -195,10 +195,21 @@ Symbol table '.symtab' contains 12 entries:
     11: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND printf
 
  ```
-- The ELF Header contains information about the binary code present in the object file. `ELF64` tells that it is a 64-bit binary code, which is in 2's complement representation and little endian format.
-- The object file has 13 section headers: `NULL`, `.text`, `.rela.text`, `.data`, `.bss`, `.rodata`, `.symtab`, etc.
+ - The ELF consists of the Program Headers, which provide the kernel and runtime linker information about what to load into memory during runtime for dynamic linking, and the Section Headers, which provide information about compile-time linking to reslove symbols. 
+- The ELF File Header contains information about the binary code present in the object file. `ELF64` tells that it is a 64-bit binary code, which is in 2's complement representation and little endian format.
+- The object file has 13 section headers: `NULL`, `.text`, `.rela.text`, `.data`, `.bss`, `.rodata`, `.symtab`, and others. 
+    - `.txt` contains the executable instructions of the program.
+    - `.data` contains initialized data.
+    - `.bss` contains uninitialized global data.
+    - `.rodata` contains read-only data.
+    - `.symtab` is the compile-time static symbol table.
  
 #### Linking
+The last step involves linking the object file `hello.o` to make an executable. Here all the function call `printf()` will be linked to its definition. The virtual address of the function and all other variables, literals and instructions will be replaced by the actual memory addresses.
+
+The linking process will add information to the executable for setting up of the running environment and passing arguments, as well as returning the value of the program to the kernel, for example, 0 for successful execution.
+
+Following is the executable file `hello`, obtained using the command ```readerelf hello.o```:
 
 ```elf
 ELF Header:
@@ -479,3 +490,4 @@ C/C++ Applications)](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_mak
  - [The Geek Stuff: Journey of a C Program to Linux Executable in 4 Stages](https://www.thegeekstuff.com/2011/10/c-program-to-an-executable/)
  - [LAMP – Programming Methods Laboratory (EPFL): How the compiler works](http://lampwww.epfl.ch/~fsalvi/docs/gcc/www.network-theory.co.uk/docs/gccintro/gccintro_68.html)
 - [Infosec: Hello World: C, Assembly, Object File and Executable](https://resources.infosecinstitute.com/hello-world-c-assembly-object-file-and-executable/#gref)
+- [ELF](https://stevens.netmeister.org/631/elf.html)
