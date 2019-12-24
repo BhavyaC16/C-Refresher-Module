@@ -7,7 +7,7 @@ preprocess:
 compile:
 	gcc -S hello.i -o hello.s
 assemble:
-	as hello.s -o hello.o
+	gcc -m64 -masm=intel -c hello.s -o hello.o
 link:
 	gcc -o hello hello.o
 clean:
