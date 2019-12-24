@@ -1,3 +1,11 @@
+##  Understanding Program Compilation Process
+C Programming Language Refresher Module for Operating Systems <br>
+__Assignment 0.1__ <br>
+__Submitted by__: Bhavya Chopra <br>
+__Roll Number__: 2018333 <br>
+__E-mail__: bhavya18333@iiitd.ac.in
+
+---
 ### Compilation and Command Line Options
 - `-save-temps`: Instructs the compiler to not to delete intermediate files, generating `hello.i`, `hello.s`, `hello.o` and `hello`:<br>
 ```gcc -save-temps hello.c -o hello``` <br>
@@ -16,7 +24,7 @@ Execute the command `make link` to generate `hello.o` using the `-c` flag after 
 ---
 
 ### Compilation Process and Output Files
-#### Pre-processing
+#### [STEP 1] Pre-processing
 The source code `hello.c` is pre-processed and the file `hello.i` is generated.
 - The line included headerfiles are expanded and included in the source code.
 - The macros defined using ```#define``` in the source code are replaced (substitution) in the pre-processed output.
@@ -53,7 +61,7 @@ int main()
  - The keyword `extern` before the function header for `printf()` indicates that it's definition is located elsewhere and needs to be linked before the execution of the source code.
  - The source code present in `hello.c` can be found towards the end in `hello.i`
  
-#### Compilation
+#### [STEP 2] Compilation
 The file `hello.i` is compiled to generate the assembly code file `hello.s` as follows: 
  ```as
     .file	"hello.c"
@@ -102,7 +110,7 @@ main:
  - ```call printf@PLT``` is the print statement.
  - The `.size` instruction stored the size of the main function in `.-main`. The `.ident` instruction shall save information about the compiler used to generate the assembly code. These shell be written to the object file.
  
-#### Assembly
+#### [STEP 3] Assembly
 The assembly code `hello.s` is then converted to an object file `hello.o` in Executable and Linkable Format (ELF). Following is the object code, obtained using the command ```readerelf hello.o```:
 
  ```elf
@@ -204,7 +212,7 @@ Symbol table '.symtab' contains 12 entries:
     - `.rodata` contains read-only data.
     - `.symtab` is the compile-time static symbol table.
  
-#### Linking
+#### [STEP 4] Linking
 The last step involves linking the object file `hello.o` to make an executable. Here all the function call `printf()` will be linked to its definition. The virtual address of the function and all other variables, literals and instructions will be replaced by the actual memory addresses.
 
 The linking process will add information to the executable for setting up of the running environment and passing arguments, as well as returning the value of the program to the kernel, for example, 0 for successful execution.
@@ -482,6 +490,7 @@ Displaying notes found in: .note.gnu.build-id
 
 ```
 
+---
 ### Resources
  - [CS-Fundamentals: Compile and Execute C Program](https://cs-fundamentals.com/c-programming/how-to-compile-c-program-using-gcc.php)
  - [Medium Blog: C Program Compilation Process](https://medium.com/@earthtojhuang/gcc-main-c-9f6ee2e6894b)
