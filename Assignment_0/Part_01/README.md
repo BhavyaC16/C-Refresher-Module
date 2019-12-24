@@ -53,7 +53,54 @@ int main()
  - The keyword `extern` before the function header for `printf()` indicates that it's definition is located elsewhere and needs to be linked before the execution of the source code.
  - The source code present in `hello.c` can be found towards the end in `hello.i`
  
- #### Compilation
+#### Compilation
+The file `hello.i` is compiled to generate the assembly code file `hello.s` as follows: 
+ ```as
+    .file	"hello.c"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"a = %d \nb = %d\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	$10, -8(%rbp)
+	movl	$20, -4(%rbp)
+	movl	-4(%rbp), %edx
+	movl	-8(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0"
+	.section	.note.GNU-stack,"",@progbits
+ ```
+ Here, the instructions are in assembly language and can be assembled by an assembler into machine level code.
+ - The directive `.file` includes the name of the source code file, `hello.c`
+ - The `.rodata` specifies read-only variables, which is the string:
+ ```c
+ "a = %d \nb = %d\n"
+ ```
+ This string can now be accessed via the `LC0` variable. The scope and function in which the variable can be accessed (`main`) is also specified.
+ - Next, the main function is defined under the `main:` label. Here, `rbp`, `rsp`, `edx`, `eax`, `esi`, etc. represent registers. These instructions shall be executed sequentially.
+ - ```call printf@PLT``` is the print statement.
+ - The `.size` instruction stored the size of the main function in `.-main`. The `.ident` instruction shall save information about the compiler used to generate the assembly code. These shell be written to the object file.
  
  
 
