@@ -98,10 +98,11 @@ main:
  "a = %d \nb = %d\n"
  ```
  This string can now be accessed via the `LC0` variable. The scope and function in which the variable can be accessed (`main`) is also specified.
- - Next, the main function is defined under the `main:` label. Here, `rbp`, `rsp`, `edx`, `eax`, `esi`, etc. represent registers. These instructions shall be executed sequentially.
+ - Next, the main function is defined under the `main:` label. Here, `rbp`, `rsp`, `edx`, `eax`, `esi`, etc. represent registers. These instructions shall be executed sequentially. There are instructions to initialize stacks and registers with required variables and values.
  - ```call printf@PLT``` is the print statement.
  - The `.size` instruction stored the size of the main function in `.-main`. The `.ident` instruction shall save information about the compiler used to generate the assembly code. These shell be written to the object file.
  
+#### Assembly
  
 
 ### Resources
