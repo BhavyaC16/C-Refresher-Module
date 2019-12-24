@@ -13,8 +13,49 @@ Execute the command `make compile` to generate the assembly code using the `-S` 
 Execute the command `make link` to generate `hello.o` using the `-c` flag after having compiled.
 - `-o`: Places the executable/preprocessed/compiled/assembled file as the specified file name.
 - `-Wall`: Enables all the compiler warnings.
+---
 
 ### Compilation Process and Output Files
+#### Pre-processing
+The source code `hello.c` is pre-processed and the file `hello.i` is generated.
+- The line included headerfiles are expanded and included in the source code.
+- The macros defined using ```#define``` in the source code are replaced (substitution) in the pre-processed output.
+- Conditional Compilation takes place using the ```#ifdef``` directives for C source codes, for running the source code on different platforms or different versions of libraries and hardware.
+
+The output file:
+```c
+...
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+
+extern int printf (const char *__restrict __format, ...);
+
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+
+...
+
+# 2 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c" 2
+
+# 3 "/home/bhavya16/Desktop/C_Refresher_Module/Assignment_0/Part_01/hello.c"
+int main()
+{
+ int a = 10;
+ int b = 20;
+ printf("a = %d \nb = %d\n", a, b);
+ return(0);
+}
+
+```
+
+ - In the file `hello.i`, the line ```#include<stdio.h>``` cannot be found as the headerfile stdio.h has been expanded and included in the source code. 
+ - The comments in the file `hello.c` cannot be found here.
+ - The keyword `extern` before the function header for `printf()` indicates that it's definition is located elsewhere and needs to be linked before the execution of the source code.
+ - The source code present in `hello.c` can be found towards the end in `hello.i`
+ 
+ #### Compilation
+ 
+ 
 
 ### Resources
  - [CS-Fundamentals: Compile and Execute C Program](https://cs-fundamentals.com/c-programming/how-to-compile-c-program-using-gcc.php)
