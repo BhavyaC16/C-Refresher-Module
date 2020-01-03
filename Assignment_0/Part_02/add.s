@@ -1,18 +1,18 @@
-global _start
-
 section .text
+extern printf
+global add
+global display_result
+add:
+  add rdi, rsi
+  mov rax, rdi
+  ret
+display_result:
+  mov rdx, rsi
+  mov rsi, rdi
+  mov rax, 1
+  mov rdi, 1
+  syscall
 
-_start:
-  mov rax, 1        ; write(
-  mov rdi, 1        ;   STDOUT_FILENO,
-  mov rsi, msg      ;   "Hello, world!\n",
-  mov rdx, msglen   ;   sizeof("Hello, world!\n")
-  syscall           ; );
-
-  mov rax, 60       ; exit(
-  mov rdi, 0        ;   EXIT_SUCCESS
-  syscall           ; );
-
-section .rodata
-  msg: db "Hello, world!", 10
-  msglen: equ $ - msg
+  mov rax, 60
+  mov rdi, 0
+  syscall
