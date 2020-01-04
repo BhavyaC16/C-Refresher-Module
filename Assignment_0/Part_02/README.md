@@ -69,6 +69,38 @@ Next, the C program `prog-add.c` and the assembly object file `add.o` are compil
 gcc prog-add.c add.o -o prog-add
 ```
 Both these commands can be executed by using the `make` command. The object file `add.o` and executable `prog-add` can be removed using the `make clean` command.
+---
+### Sample Input/Output
+- Input:
+```
+Enter integer A: 194
+Enter integer B: 1351
+```
+Output:
+```
+The sum is:
+1545
+```
+- Input:
+```
+Enter integer A: -100
+Enter integer B: 430
+```
+Output:
+```
+The sum is:
+330
+```
+- Input:
+```
+Enter integer A: 2147483646
+Enter integer B: 1
+```
+Output:
+```
+The sum is:
+2147483647
+```
 
 ### Resources
  - [Hello world in Linux x86-64 assembly](https://jameshfisher.com/2018/03/10/linux-assembly-hello-world/)
