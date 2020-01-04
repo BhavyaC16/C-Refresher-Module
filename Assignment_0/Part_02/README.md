@@ -14,12 +14,14 @@ To make the routines `add` and `display_result` present in the assembly code `ad
 section .text
   global add
   global display_result
+  global display_statement
 
 ```
 Also, the function headers for these have been marked as `extern` to aid the compiler with the linking process:
 ```c
 extern int add(int a, int b);
 extern void display_result(char * result, int len);
+extern void display_statement();
 
 ```
 ---
