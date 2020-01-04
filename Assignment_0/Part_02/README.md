@@ -51,7 +51,7 @@ Similarly, the `display_result` routine takes the display string and its length 
   mov rdi, 1
   syscall
 ```
-For the exist syscall after displaying the result, `rax` is changed to `60` to indicate `sys_exit`, `rdi` is changed to `0` to indicate successful execution as follows:
+For the exit syscall after displaying the result, `rax` is changed to `60` to indicate `sys_exit`, `rdi` is changed to `0` to indicate successful execution as follows:
 ```asm
   mov rax, 60
   mov rdi, 0
@@ -84,7 +84,7 @@ Output 1:
 The sum is:
 1545
 ```
-- Input 2:
+Input 2:
 ```
 Enter integer A: -100
 Enter integer B: 430
@@ -94,7 +94,7 @@ Output 2:
 The sum is:
 330
 ```
-- Input 3:
+Input 3:
 ```
 Enter integer A: 2147483646
 Enter integer B: 1
