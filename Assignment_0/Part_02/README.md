@@ -102,6 +102,7 @@ Output 3:
 The sum is:
 2147483647
 ```
+---
 
 ### Resources
  - [Hello world in Linux x86-64 assembly](https://jameshfisher.com/2018/03/10/linux-assembly-hello-world/)
