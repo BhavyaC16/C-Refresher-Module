@@ -71,32 +71,32 @@ gcc prog-add.c add.o -o prog-add
 Both these commands can be executed by using the `make` command. The object file `add.o` and executable `prog-add` can be removed using the `make clean` command.
 ---
 ### Sample Input/Output
-- Input:
+Input 1:
 ```
 Enter integer A: 194
 Enter integer B: 1351
 ```
-Output:
+Output 1:
 ```
 The sum is:
 1545
 ```
-- Input:
+- Input 2:
 ```
 Enter integer A: -100
 Enter integer B: 430
 ```
-Output:
+Output 2:
 ```
 The sum is:
 330
 ```
-- Input:
+- Input 3:
 ```
 Enter integer A: 2147483646
 Enter integer B: 1
 ```
-Output:
+Output 3:
 ```
 The sum is:
 2147483647
