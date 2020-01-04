@@ -69,6 +69,7 @@ Next, the C program `prog-add.c` and the assembly object file `add.o` are compil
 gcc prog-add.c add.o -o prog-add
 ```
 Both these commands can be executed by using the `make` command. The object file `add.o` and executable `prog-add` can be removed using the `make clean` command.
+
 ---
 ### Sample Input/Output
 Input 1:
