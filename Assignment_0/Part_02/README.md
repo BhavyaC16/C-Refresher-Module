@@ -56,6 +56,19 @@ For the exist syscall after displaying the result, `rax` is changed to `60` to i
   syscall
 ```
 ---
+### Makefile and compilation
+
+First, the assembly program `add.s` is assembled to generate the object file `add.o` using the following command:
+```
+nasm -f elf64 add.s -o add.o
+```
+`-f elf64` informs the compiler that it is a 64-bit assembly code, and that the output has to be of elf 64 bit format.
+
+Next, the C program `prog-add.c` and the assembly object file `add.o` are compiled and linked to form a single executable using the following command:
+```
+gcc prog-add.c add.o -o prog-add
+```
+Both these commands can be executed by using the `make` command. The object file `add.o` and executable `prog-add` can be removed using the `make clean` command.
 
 ### Resources
  - [Hello world in Linux x86-64 assembly](https://jameshfisher.com/2018/03/10/linux-assembly-hello-world/)
