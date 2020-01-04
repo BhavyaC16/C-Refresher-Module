@@ -3,6 +3,7 @@
 
 extern int add(int a, int b);
 extern void display_result(char * result, int len);
+extern void display_statement();
 
 void int_to_string(char result[], int number)
 {
@@ -34,5 +35,6 @@ void main()
 	char result_string[11];
 	int_to_string(result_string, res);
 	int len = strlen(result_string);
+    display_statement();
 	display_result(result_string, len);
 }
